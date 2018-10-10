@@ -45,9 +45,53 @@
 # substituindo apenas o comando print(questão...) existente.
 ##
 def main():
-    print("questao 3")
+    valid = ['ROT', True]
+    key = input()
+    value = 0
+    keys = key.split()
+    tam = len(keys[0])
+    i =0
+    while i < 5:
+        if i < 3:
+            if (keys[0][i] == valid[0][i]):
+                if (keys[0][3] + keys[0][4]).isdigit() and (value >= 0 and value <= 26):
+                    value =  int((keys[0][3] + keys[0][4]))
+                if not(keys[0][3] + keys[0][4]).isdigit() and (value >= 0 and value <= 26):
+                    print('c eh burro mano')
+        else:
+            temp = []
+            for char in keys[1]:
+                temp.append(chr(ord(char) + value))
+            key = temp
+            for element in temp:
+                print("{}".format(element), end='')
+        i += 1
+    key = input()
+    # if key == '':
+    #     break
+        
+    # while valid[1]:
+        # value = 0
+        # keys = key.split()
+        # tam = len(keys[0])
+        # while i < 5:
+        #     if i < 3:
+        #         if (keys[0][i] == valid[0][i]):
+        #             if (keys[0][3] + keys[0][4]).isdigit() and (value >= 0 and value <= 26):
+        #                 value =  int((keys[0][3] + keys[0][4])
+        #             # if not(keys[0][3] + keys[0][4]).isdigit() and (value >= 0 and value <= 26):
+        #             #     print('c eh burro mano')
+        #     # else:
+        #     #     temp = []
+        #     #     for char in keys[1]:
+        #     #         temp.append(chr(ord(char) + value))
+        #     #     key = temp
+        #     #     for element in temp:
+        #     #         print("{}".format(element), end='')
+        # key = input()
+        # if key == '':
+        #     break
+                    
 
-
-    
 if __name__ == '__main__':
     main()

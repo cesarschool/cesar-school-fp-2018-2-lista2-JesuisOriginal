@@ -37,8 +37,31 @@
 # Para a correta execução do programa, a estrutura atual deve ser mantida,
 # substituindo apenas o comando print(questão...) existente.
 ##
+from math import sqrt
+
 def main():
-    print("questao 2")
+    ENTRY = 'run'
+    cord = [0, 0]
+    Validos = ['CIMA', 'ESQUERDA', 'DIREITA', "BAIXO"]
+    ENTRY = input()
+    while ENTRY != '':
+        tupla = ENTRY.split()
+        tupla[0] = tupla[0].upper()
+        tupla[1] = int(tupla[1])
+        if (tupla[0] in Validos) and (str(tupla[1]).isdigit()):
+            if tupla[0] == Validos[0]:
+                cord[1] += tupla[1]
+            elif tupla[0] == Validos[1]:
+                cord[0] -= tupla[1]
+            elif tupla[0] == Validos[2]:
+                cord[0] += tupla[1]
+            elif tupla[0] == Validos[3]:
+                cord[1] -= tupla[1]
+        ENTRY = input()
+
+    Dab = sqrt( (cord[0]**2) + (cord[1]**2))
+    print(Dab) 
+      
 
 
     
