@@ -50,7 +50,7 @@ def main():
     value = 0
     keys = key.split()
     tam = len(keys[0])
-    i =0
+    i = 0
     while i < 5:
         if i < 3:
             if (keys[0][i] == valid[0][i]):
@@ -66,7 +66,7 @@ def main():
             for element in temp:
                 print("{}".format(element), end='')
         i += 1
-    key = input()
+    # key = input()
     # if key == '':
     #     break
         
