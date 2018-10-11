@@ -61,7 +61,7 @@ def main():
         else:
             temp = []
             for char in keys[1]:
-                temp.append(chr(ord(char) + value))
+                temp.append(chr(((ord(char) + value) % 122) + 97))
             key = temp
             for element in temp:
                 print("{}".format(element), end='')
