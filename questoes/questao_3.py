@@ -46,52 +46,42 @@
 ##
 def main():
     valid = ['ROT', True]
+    bvalid = True
+    rot = "ROT"
     key = input()
     value = 0
-    keys = key.split()
-    tam = len(keys[0])
+    rot_value = 0
+    encode = ""
+    i = 0
+    Troca = False
+    temp = ""
+    while i < len(key):
+        if not(Troca):
+            temp += key[i]
+        if key[i] == " ":
+            Troca == tuple
+        if Troca:
+            encode += key[i]
+        i += 1
+
     i = 0
     while i < 5:
         if i < 3:
-            if (keys[0][i] == valid[0][i]):
-                if (keys[0][3] + keys[0][4]).isdigit() and (value >= 0 and value <= 26):
-                    value =  int((keys[0][3] + keys[0][4]))
-                if not(keys[0][3] + keys[0][4]).isdigit() and (value >= 0 and value <= 26):
+            if (temp[i] == rot[i]):
+                if (temp[3] + temp[4]).isdigit() and (value >= 0 and value <= 26):
+                    value =  int((temp[3] + temp[4]))
+                if not(temp[3] + temp[4]).isdigit() and (value >= 0 and value <= 26):
                     print('c eh burro mano')
         else:
-            temp = []
-            for char in keys[1]:
-                temp.append(chr(((ord(char) + value) % 122) + 97))
+            temp = ""
+            k = 0
+            while k < len(encode):
+                temp+= (chr(((ord(char) + value) % 122) + 97))
+                k += 1
             key = temp
             for element in temp:
                 print("{}".format(element), end='')
         i += 1
-    # key = input()
-    # if key == '':
-    #     break
-        
-    # while valid[1]:
-        # value = 0
-        # keys = key.split()
-        # tam = len(keys[0])
-        # while i < 5:
-        #     if i < 3:
-        #         if (keys[0][i] == valid[0][i]):
-        #             if (keys[0][3] + keys[0][4]).isdigit() and (value >= 0 and value <= 26):
-        #                 value =  int((keys[0][3] + keys[0][4])
-        #             # if not(keys[0][3] + keys[0][4]).isdigit() and (value >= 0 and value <= 26):
-        #             #     print('c eh burro mano')
-        #     # else:
-        #     #     temp = []
-        #     #     for char in keys[1]:
-        #     #         temp.append(chr(ord(char) + value))
-        #     #     key = temp
-        #     #     for element in temp:
-        #     #         print("{}".format(element), end='')
-        # key = input()
-        # if key == '':
-        #     break
-                    
-
+    
 if __name__ == '__main__':
     main()

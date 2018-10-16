@@ -42,24 +42,39 @@ from math import sqrt
 def main():
     ENTRY = 'run'
     cord = [0, 0]
-    Validos = ['CIMA', 'ESQUERDA', 'DIREITA', "BAIXO"]
+    x = 0
+    y = 0
     ENTRY = input()
     while ENTRY != '':
-        tupla = ENTRY.split()
-        tupla[0] = tupla[0].upper()
-        tupla[1] = int(tupla[1])
-        if (tupla[0] in Validos) and (str(tupla[1]).isdigit()):
-            if tupla[0] == Validos[0]:
-                cord[1] += tupla[1]
-            elif tupla[0] == Validos[1]:
-                cord[0] -= tupla[1]
-            elif tupla[0] == Validos[2]:
-                cord[0] += tupla[1]
-            elif tupla[0] == Validos[3]:
-                cord[1] -= tupla[1]
+        i = 0
+        incremento = 0
+        temp, direcao = ""
+        ver = True
+        while i < 0:
+            if (ver):
+                temp += ENTRY[i]
+            if (ENTRY[i] == " "):
+                ver = False
+            if not(ver):
+                direcao += ENTRY[i]
+        
+        incremento = int(temp)
+        direcao = direcao.upper()
+        valido = True
+        if (direcao != "BAIXO") and (direcao != 'ESQUERDA') and (direcao != 'DIREITA') and (direcao != "BAIXO"):
+            valido = False
+        if valido and str(incremento).isdigit():
+            if direcao == 'CIMA':
+                y += incremento
+            elif direcao == 'ESQUERDA':
+                x -= incremento
+            elif direcao == 'DIREITA':
+                x += incremento
+            elif direcao == "BAIXO":
+                y -= incremento
         ENTRY = input()
 
-    Dab = sqrt( (cord[0]**2) + (cord[1]**2))
+    Dab = sqrt( (x**2) + (y**2))
     print(Dab) 
       
 
