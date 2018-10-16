@@ -57,7 +57,7 @@ def main():
                 ver = False
             if not(ver):
                 direcao += ENTRY[i]
-        
+            i += 1
         incremento = int(temp)
         direcao = direcao.upper()
         valido = True

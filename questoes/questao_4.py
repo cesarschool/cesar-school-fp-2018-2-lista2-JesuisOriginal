@@ -59,6 +59,7 @@ def main():
                 break
         if date[i] == "/":
             ver += 1
+        i += 1
     day = int(date)
     month = int(month)
     year = int(year)
