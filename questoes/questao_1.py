@@ -30,39 +30,25 @@
 
 import string
 import re
+regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
 
 def main():
     senha = input('informe a senha \n senha:  ')
-    senhas = []
-    senhas = senha.split()
-    senhas_validas = []
-    # print(senhas)
-    i = 0
-    regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]') 
-
-    while i < len(senhas):
-        # print('i = ', i)
-        # print('tamanho da lista ',len(senhas))
-        # print('i < len(senhas)', (i < len(senhas)))
-        # print('N: {0} element: {1}'.format(i, senhas[i]))
-        if (bool(re.match('^(?=.*[0-9]$)(?=.*[a-zA-Z])', senhas[i]))):
-            # print('{} is alphanum'.format(senhas[i]))
-            if (len(senhas[i]) >= 6):
-                # print('{} is enought'.format(senhas[i]))
-                if not(senhas[i].isupper() or senhas[i].islower()):
-                    # print('{} is not all upper/lower'.format(senhas[i]))
-                    if (regex.search(senhas[i]) != None):
-                        # print('has especial')
-                        if (len(senhas[i]) <= 12):
-                            # print('not too long')
-                            senhas_validas.append(senhas[i])
-        i += 1
-        # print('##############################################################################################')
-        # print('                             PROXIMO                                                            ')
-        # print('##############################################################################################')
-
-    print(senhas_validas)
-
+    k = 0
+    temp = " "
+    while k < len(senha):
+        temp += senha[k]
+        if senha[k] == " ":
+            i = 0
+            while i < len(temp):
+                if (bool(re.match('^(?=.*[0-9]$)(?=.*[a-zA-Z])', temp[i]))):
+                    if (len(temp[i]) >= 6):
+                        if not(temp[i].isupper() or temp[i].islower()):
+                            if (regex.search(temp[i]) != None):
+                                if (len(temp[i]) <= 12):
+                                    print("{}".format(temp), end=" ")
+                i += 1
+        k += 1
 
 if __name__ == '__main__':
     main()

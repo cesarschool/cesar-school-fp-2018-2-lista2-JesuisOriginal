@@ -1,19 +1,19 @@
 ## QUESTÃO 4 ##
 #
 # Escreva um programa que leia uma data do usuário e calcule seu sucessor imediato.
-# Por exemplo, se o usuário inserir valores que representem 2013-11-18, seu programa 
-# deve exibir uma mensagem indicando que o dia imediatamente após 2013-11-18 é 
-# 2013-11-19. Se o usuário inserir valores que representem 2013-11-30, o programa deve 
-# indicar que o dia seguinte é 2013-12-01. Se o usuário inserir valores que representem 
-# 2013-12-31 então o programa deve indicar que o dia seguinte é 2014-01-01. A data 
-# será inserida em formato numérico com três instruções de entrada separadas; 
-# uma para o ano, uma para o mês e uma para o dia. Certifique-se de que o seu programa 
+# Por exemplo, se o usuário inserir valores que representem 2013-11-18, seu programa
+# deve exibir uma mensagem indicando que o dia imediatamente após 2013-11-18 é
+# 2013-11-19. Se o usuário inserir valores que representem 2013-11-30, o programa deve
+# indicar que o dia seguinte é 2013-12-01. Se o usuário inserir valores que representem
+# 2013-12-31 então o programa deve indicar que o dia seguinte é 2014-01-01. A data
+# será inserida em formato numérico com três instruções de entrada separadas;
+# uma para o ano, uma para o mês e uma para o dia. Certifique-se de que o seu programa
 # funciona corretamente para anos bissextos.
 ##
 
 
 ##
-# A sua resposta da questão deve ser desenvolvida dentro da função main()!!! 
+# A sua resposta da questão deve ser desenvolvida dentro da função main()!!!
 # Deve-se substituir o comado print existente pelo código da solução.
 # Para a correta execução do programa, a estrutura atual deve ser mantida,
 # substituindo apenas o comando print(questão...) existente.
@@ -21,48 +21,56 @@
 
 def main():
     yb = False
-    calendar = {
-                'janeiro': [1, 31],
-                'fevereiro': [2, 28],
-                'marco': [3, 31],
-                'abril': [4, 30],
-                'maio': [5, 31],
-                'junho': [6, 30],
-                'julho': [7, 31],
-                'agosto': [8, 31],
-                'setembro': [9, 30],
-                'outubro': [10, 31],
-                'novembro': [11, 30],
-                'dezembro': [12,31]
-                                }
-    m31 = {}
-    for month in calendar:
-        if month[1] = 31:
-            m31.update(month)
-    datef = { 'day': 0, 'month': 0, 'year': 0}
+    janeiro = 31  # 1
+    fevereiro = 28  # 2
+    marco = 31  # 3
+    abril = 30  # 4
+    maio = 31  # 5
+    junho = 30  # 6
+    julho = 31  # 7
+    agosto = 31  # 8
+    setembro = 30  # 9
+    outubro = 31  # 10
+    novembro = 30  # 11
+    dezembro = 31  # 12
+    m31 = "janeiro marco maio julho agosto outubro dezembro"
+    day = 0
+    month = 0
+    year = 0
+
     def isoddyear(year):
         if year % 4 == 0 and not(year % 100 == 0) and year % 400 == 0:
             return True
         else:
             return False
-    date = input
-    time = date.split('-')
-    for dat in time:
-        dat = int(dat)
-    datef['year'] = time[0]
-    datef['month'] = time[1]
-    datef['day'] = time[2]
-    if (dadatef['day'] > 28 and datef['month'] = 2 and not isoddyear(datef['year']) ) or (dadatef['day'] > 30 and datef['month'] in m31):
+
+    date = input()
+    i = 0
+    ver = 0
+    while i < len(date):
+        if not date[i] == "/":
+            if ver == 0:
+                day += date[i]
+            elif ver == 1:
+                month += date[i]
+            elif ver == 2:
+                month += date[i]
+            else:
+                break
+        if date[i] == "/":
+            ver += 1
+    day = int(date)
+    month = int(month)
+    year = int(year)
+    dayn = day + 1
+    if (dayn > 28 and month=2 and not isoddyear(year)) or (dayn > 30 and month in m31):
         month += 1
-        datef['day'] = 1
-        if datef['month'] = 12:
-            datef['year'] += 1
+        day = 1
+        if month = 12:
+            year += 1
     else:
         day += 1
-    for now in datef:
-        print(now, end='-')
-
-            
+    print("{}/{}/{}".format(day, month, year))
 
 
 if __name__ == '__main__':
