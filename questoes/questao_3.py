@@ -59,7 +59,7 @@ def main():
         if not(Troca):
             temp += key[i]
         if key[i] == " ":
-            Troca == tuple
+            Troca == True
         if Troca:
             encode += key[i]
         i += 1
